@@ -27,12 +27,10 @@ async function multipleImages(imgArray) {
 
     try {
         const res = await axios.post(uploadUrl, formData, { headers })
-        console.log(res.data.data)
 
         // Convert the imgRes array to a comma-separated string
-        const imgRes = res.data.data.map(item => item.path);
+        const imgRes = res.data.data.map(item => item);
         const imgResString = imgRes.join(',');
-
         return imgResString
     }
     catch (err) {
